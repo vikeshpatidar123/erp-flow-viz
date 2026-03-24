@@ -19,9 +19,19 @@ export default function FlowDiagram() {
       {/* Page Header */}
       <div className="max-w-screen-2xl mx-auto px-6 pt-8 pb-4">
         <h1 className="text-2xl font-bold text-white">Database Flow</h1>
-        <p className="text-slate-400 text-sm mt-1">
-          End-to-end ERP production lifecycle — {orderedModules.length} modules, {orderedModules.reduce((a, m) => a + m.tables.length, 0)} tables
-        </p>
+        <div className="flex flex-wrap gap-4 mt-1">
+          {[
+            { label: "Modules", val: orderedModules.length, color: "text-[#3ea8ba]" },
+            { label: "DB Tables", val: orderedModules.reduce((a, m) => a + m.tables.length, 0), color: "text-emerald-400" },
+            { label: "Columns", val: orderedModules.reduce((a, m) => a + m.tables.reduce((b, t) => b + t.columns.length, 0), 0), color: "text-violet-400" },
+            { label: "ASPX Pages", val: orderedModules.reduce((a, m) => a + (m.aspxPages?.length ?? 0), 0), color: "text-amber-400" },
+          ].map((s) => (
+            <div key={s.label} className="flex items-baseline gap-1.5">
+              <span className={`font-bold text-lg ${s.color}`}>{s.val}</span>
+              <span className="text-slate-500 text-xs">{s.label}</span>
+            </div>
+          ))}
+        </div>
 
         {/* Flow Step Indicator */}
         <div className="flex items-center flex-wrap gap-0 mt-4 p-3 bg-[#0d2535] rounded-xl border border-[#1F5C63]/30 overflow-x-auto">

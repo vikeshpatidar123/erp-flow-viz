@@ -36,6 +36,20 @@ export default function ModulePage({ params }: { params: { module: string } }) {
                 </div>
               ))}
             </div>
+            {mod.aspxPages?.length > 0 && (
+              <div className="mt-4">
+                <h2 className="text-[#6ec5d3] font-bold text-sm uppercase tracking-wider mb-2">
+                  🖥️ ASPX Windows ({mod.aspxPages.length})
+                </h2>
+                <div className="flex flex-wrap gap-1.5">
+                  {mod.aspxPages.map((p) => (
+                    <span key={p} className="text-xs px-2 py-0.5 rounded bg-[#1F5C63]/40 border border-[#3ea8ba]/30 text-[#a8dde6] font-mono">
+                      {p}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
             <div className="mt-4">
               <h2 className="text-[#6ec5d3] font-bold text-sm uppercase tracking-wider mb-2">Sample Data</h2>
               <pre className="bg-[#0d2535] border border-white/10 rounded-lg p-3 text-xs text-emerald-300 overflow-x-auto">

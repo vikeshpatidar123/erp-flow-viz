@@ -67,6 +67,20 @@ export default function DetailModal({ module, onClose }: Props) {
                 )}
               </div>
 
+              {/* ASPX Pages */}
+              {module.aspxPages?.length > 0 && (
+                <div className="mt-4">
+                  <h3 className="text-[#6ec5d3] font-bold text-sm uppercase tracking-wider mb-2">🖥️ Windows / ASPX Pages ({module.aspxPages.length})</h3>
+                  <div className="flex flex-wrap gap-1.5">
+                    {module.aspxPages.map((p) => (
+                      <span key={p} className="text-xs px-2 py-0.5 rounded bg-[#1F5C63]/50 border border-[#3ea8ba]/30 text-[#a8dde6] font-mono">
+                        {p}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
               {/* Sample Data */}
               <div className="mt-4">
                 <h3 className="text-[#6ec5d3] font-bold text-sm uppercase tracking-wider mb-2">🧪 Sample Data</h3>

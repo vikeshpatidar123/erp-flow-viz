@@ -56,7 +56,7 @@ export default function ModuleCard({ module, index, view, isActive, onClick }: P
           <div className="text-right shrink-0">
             <div className="text-[#3ea8ba] font-bold text-lg">{module.tables.length}</div>
             <div className="text-slate-500 text-xs">tables</div>
-            <div className="text-slate-600 text-xs">{totalCols} cols</div>
+            <div className="text-slate-600 text-xs">{module.aspxPages?.length ?? 0} pages</div>
           </div>
         </div>
 

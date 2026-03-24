@@ -22,6 +22,7 @@ export interface ModuleData {
   description: string;
   receivesFrom: string[];
   sendsTo: string[];
+  aspxPages: string[];
   tables: DBTable[];
   businessFlow: string[];
   sampleData: Record<string, unknown>;
